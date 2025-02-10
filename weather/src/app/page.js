@@ -1,5 +1,5 @@
 import { MiddleLogo } from "./components/Logo";
-import { SearchBar } from "./components/searchbar";
+import { SearchBar } from "./components/SearchBar";
 import { LightLeft } from "./components/LeftLayout";
 import { DarkRight } from "./components/RightLayout";
 
