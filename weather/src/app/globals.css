@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --bgDark-color:#0F141E;
+    --bgWhite-color:#F3F4F6;
+    --day-color: rgba(255, 255, 255, 0.75);
+    --night-color:rgba(17, 24, 39, 0.75);
+  }
+  

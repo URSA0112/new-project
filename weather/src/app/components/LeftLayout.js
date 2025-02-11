@@ -6,15 +6,18 @@ import { DayFooter } from "./left/LeftFooter"
 
 export function LightLeft() {
     return (
-            <div className="bg-pink-400 w-1/2 h-screen flex items-center justify-center " >
-                <div className=" bg-[rgba(255,255,255,0.4)] w-[60%] h-[70%] rounded-lg justify-self-center z-[2] backdrop-blur-[10px] p-[15px] block relative">
-                    <DayTitle></DayTitle>
-                    <DayIcon></DayIcon>
-                    <DayWeather></DayWeather>
-                    <DayFooter></DayFooter>
-                </div>
-
+        <div className="bg-[var(--bgWhite-color)] w-1/2 h-screen flex items-center justify-center  " >
+            <div className=" bg-[var(--day-color)] w-[65%] h-[70%] p-[15px] z-[2] backdrop-blur-[10px] 
+                rounded-lg justify-self-center 
+                block relative
+                min-w-[200px] min-h-[300px]">
+                <DayTitle></DayTitle>
+                <DayIcon></DayIcon>
+                <DayWeather></DayWeather>
+                <DayFooter></DayFooter>
             </div>
+
+        </div>
 
     )
 }

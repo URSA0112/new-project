@@ -1,10 +1,10 @@
 export function DayFooter(){
     return (
-        <div className="flex bg-slate-400 w-[80%] h-[10%] absolute bottom-[10%] gap-[5%] ml-[5%] mr-[5%] " >
-            <div className="bg-white flex justify-center w-[20%] h[auto] m-1 "><img src="footer-icon-1.png " alt="" /></div>
-            <div className="bg-white flex justify-center w-[20%] h[auto] m-1 "><img src="footer-icon-2.png " alt="" /></div>
-            <div className="bg-white flex justify-center w-[20%] h[auto] m-1 "><img src="footer-icon-3.png " alt="" /></div>
-            <div className="bg-white flex justify-center w-[20%] h[auto] m-1 "><img src="footer-icon-4.png " alt="" /></div>
+        <div className="flex justify-center gap-[2px] bg-[--day-color] w-[90%] h-[10%] absolute bottom-[6%] left-[50%] translate-x-[-50%] p-[1px]" >
+            <div className=" flex justify-center self-center w-[90%] h-[70%] m-[0.1px] p-[1px] "><img src="footer-icon-1.png " alt="" /></div>
+            <div className=" flex justify-center self-center w-[90%] h-[70%] m-[0.1px] p-[1px] "><img src="footer-icon-2.png " alt="" /></div>
+            <div className=" flex justify-center self-center w-[90%] h-[70%] m-[0.1px] p-[1px] "><img src="footer-icon-3.png " alt="" /></div>
+            <div className=" flex justify-center self-center w-[90%] h-[70%] m-[0.1px] p-[1px] "><img src="footer-icon-4.png " alt="" /></div>
         </div>
     )
 }
