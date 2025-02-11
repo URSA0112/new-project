@@ -1,17 +1,14 @@
-
-
 import { LightLeft } from "./components/LeftLayout";
 import { MiddleLogo } from "./components/Logo";
 import { DarkRight } from "./components/RightLayout";
-import { SearchBar } from "./components/SearchBar"
+import { SearchBar } from "./components/SearchBar";
 
 export default function Home() {
-
   return (
-    <div >
-<SearchBar></SearchBar>
+    <div>
+      <SearchBar></SearchBar>
       <div className="flex">
-        <LightLeft />      
+        <LightLeft />
         <MiddleLogo></MiddleLogo>
         <DarkRight />
       </div>
