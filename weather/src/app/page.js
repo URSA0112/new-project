@@ -9,7 +9,7 @@ export default function Home() {
   const [inputText, setInputtext] = useState("")
   function onChange(e) {setInputtext(e.target.value)}
 
-  const [storeLocation, setStoreLocation]=useState([])
+  // const [storeLocation, setStoreLocation]=useState([])
   
   async function getWeather() {
     const response = await fetch("https://countriesnow.space/api/v0.1/countries")
@@ -22,6 +22,7 @@ export default function Home() {
 
   }
   getWeather()
+  
 console.log(location)
   return (
     <div>
