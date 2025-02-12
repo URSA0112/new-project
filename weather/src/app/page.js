@@ -18,8 +18,6 @@ export default function Home() {
     const countries = dataArr.map(each => each.country)
     const citiesArr = dataArr.map(each => each.cities)
     const cities = Object.values(citiesArr).flat(Infinity)
-    console.log(cities)
-
   }
   getWeather()
   
