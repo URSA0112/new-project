@@ -12,16 +12,12 @@ export default function Home() {
   const [location , setLocation]=useState([])
 
   // const [storeLocation, setStoreLocation]=useState([])
+  const arr = [];
   
-  async function getWeather() {
+ async function getWeather() {
     const response = await fetch("https://countriesnow.space/api/v0.1/countries")
     const fetchedData = await response.json()
     const dataArr = fetchedData.data
-    const location= dataArr.flatMap(each=>each.cities + "-" +each.country)
-console.log(location)
-    
-  
-  //  setLocation(location)
 
   }
   
