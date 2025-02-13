@@ -4,7 +4,7 @@ import { DayWeather } from "./left/LeftWeather"
 import { DayFooter } from "./left/LeftFooter"
 
 
-export function LightLeft() {
+export function LightLeft(props) {
     return (
 
         <div className="bg-[var(--bgWhite-color)] w-1/2 h-screen flex items-center justify-center " >

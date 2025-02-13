@@ -3,11 +3,13 @@ import { LightLeft } from "./components/LeftLayout";
 import { DarkRight } from "./components/RightLayout";
 import { SearchBar } from "./components/SearchBar";
 import { useState, useEffect } from "react";
+import chalk from "chalk";
 
 
 export default function Home() {
   const [inputText, setInputtext] = useState("")
   function onChange(e) {setInputtext(e.target.value)}
+  const [location , setLocation]=useState([])
 
   // const [storeLocation, setStoreLocation]=useState([])
   
@@ -15,20 +17,28 @@ export default function Home() {
     const response = await fetch("https://countriesnow.space/api/v0.1/countries")
     const fetchedData = await response.json()
     const dataArr = fetchedData.data
-    const countries = dataArr.map(each => each.country)
-    const citiesArr = dataArr.map(each => each.cities)
-    const cities = Object.values(citiesArr).flat(Infinity)
-  }
-  getWeather()
-  
+    const location= dataArr.flatMap(each=>each.cities + "-" +each.country)
 console.log(location)
+    
+  
+  //  setLocation(location)
+
+  }
+  
+  getWeather()
+
+
+
+
+
   return (
     <div>
       <SearchBar inputText={inputText} handleChange={onChange}></SearchBar>
       <div className="flex min-w-[470px] min-h-[300px]">
-        <LightLeft />
+        <LightLeft location={location}/> 
         <DarkRight />
       </div>
+      <li className="">{location}</li>
     </div>
   );
 }
