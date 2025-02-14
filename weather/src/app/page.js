@@ -5,7 +5,8 @@ import { SearchBar } from "./components/SearchBar";
 import { useState, useEffect } from "react";
 import chalk from "chalk";
 
-
+const listStyle= "bg-black/30 backdrop-sepia-50 pl-5 w-[400px] h-[30px] text-white"
+const dayTemp = "-30"
 export default function Home() {
   const [inputText, setInputtext] = useState("")
   function onChange(e) { setInputtext(e.target.value) }
@@ -13,10 +14,15 @@ export default function Home() {
   const [locationList, setLocationList] = useState([])
   const [filtered, setFiltered] = useState([])
 
-function check(){     
-   setLocationList(filtered.map((each, index) => <li key={index}>{each}</li>))
+
+
+function handleClickOnLocation(){
+
 }
 
+function check(){     
+   setLocationList(filtered.map((each, index) => <div className={listStyle} onClick={handleClickOnLocation} key={index}>{each}</div>))
+}
 
   useEffect(() => {
     async function getWeather() {
@@ -27,22 +33,19 @@ function check(){
       const locationForm = dataArr.flatMap(each => each.cities.map(city => `${city} ${each.country}`));
       setLocationArr(locationForm)
       setFiltered(locationForm.filter(each => each.toLowerCase().slice(0,100).includes(inputText.toLowerCase())))
-
     }
-
     getWeather()
   }, [check]
   )
 
   return (
     <div>
-      <SearchBar inputText={inputText} handleChange={onChange}></SearchBar>
+      <SearchBar inputText={inputText} handleChange={onChange} check={check} locationList={locationList}> </SearchBar>
       <div className="flex min-w-[470px] min-h-[300px]"> 
-         <button onClick={check} className="bg-slate-600">check</button>
-        {/* <LightLeft />
-        <DarkRight /> */}
+        <LightLeft dayTemp={dayTemp}/>
+        <DarkRight />
       </div>
-      <ul className="">{locationList}</ul>
+     
 
     </div>
   )

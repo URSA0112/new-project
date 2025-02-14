@@ -4,7 +4,9 @@ import { DayWeather } from "./left/LeftWeather"
 import { DayFooter } from "./left/LeftFooter"
 
 
+  export const listStyle= "bg-black/30 backdrop-sepia-50 pl-5 w-[400px] h-[30px] text-white" 
 export function LightLeft(props) {
+   
     return (
 
         <div className="bg-[var(--bgWhite-color)] w-1/2 h-screen flex items-center justify-center " >
@@ -15,7 +17,7 @@ export function LightLeft(props) {
                 min-w-[200px] min-h-[300px]">
                 <DayTitle></DayTitle>
                 <DayIcon></DayIcon>
-                <DayWeather></DayWeather>
+                <DayWeather dayTemp={props.dayTemp}></DayWeather>
                 <DayFooter></DayFooter>
             </div>
 
