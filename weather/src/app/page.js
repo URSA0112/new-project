@@ -34,15 +34,15 @@ export default function Home() {
   }, [inputText])
 
   function selectedList(each, index) {
-   console.log(each)
+   console.log(each,index)
   }
 
   return (
     <div>
-      <SearchBar inputText={inputText} onChangeInput={handleInputChange} locationList={locationList}
-        eachList={selectedList}> </SearchBar>
+  
       <div className="flex min-w-[470px] min-h-[300px]">
-        <LightLeft />
+        <LightLeft inputText={inputText} onChangeInput={handleInputChange} locationList={locationList}
+        eachList={selectedList} />
         <DarkRight />
       </div>
     </div>
