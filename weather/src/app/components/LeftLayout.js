@@ -12,7 +12,7 @@ export function LightLeft(props) {
         <SearchBar inputText={props.inputText} 
         onChangeInput={props.onChangeInput} 
         locationList={props.locationList}
-        eachList={props.selectedList}> </SearchBar>
+       locationClick={props.locationClick}> </SearchBar>
         
         <div className="bg-[var(--bgWhite-color)] w-1/2 h-screen flex items-center justify-center " >
 
@@ -23,7 +23,7 @@ export function LightLeft(props) {
                 min-w-[200px] min-h-[300px]">
                 <DayTitle></DayTitle>
                 <DayIcon></DayIcon>
-                <DayWeather dayTemp={props.dayTemp}></DayWeather>
+                <DayWeather weather={props.weather}></DayWeather>
                 <DayFooter></DayFooter>
             </div>
 
