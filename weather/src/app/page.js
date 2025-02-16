@@ -2,6 +2,7 @@
 import { LightLeft } from "./components/LeftLayout";
 import { DarkRight } from "./components/RightLayout";
 import { SearchBar } from "./components/SearchBar";
+import { Circle } from "./circle";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -27,8 +28,8 @@ export default function Home() {
     if (inputText.trim() === "") { setLocationList([]); return; }
     const filteredList = ((locationData
       .filter(location => location.toLowerCase().trim().includes(inputText.toLowerCase().trim()))
-      .slice(0, 7)))
-      .map((each, index) => <div key={index} onClick={() => locationClick(each)} className="cursor-pointer hover:scale-105 hover:bg-white-100 hover:shadow-md transition-all duration-300 rounded-md p-2"
+      .slice(0, 4)))
+      .map((each, index) => <div key={index} onClick={() => locationClick(each)} className=" cursor-pointer hover:scale-105 hover:bg-white-100  hover:shadow-md transition-all duration-300 rounded-md p-2 w-[100%] justify-self-center text-center"
       >{each}</div>)
 
     setLocationList(filteredList)
@@ -38,37 +39,33 @@ export default function Home() {
   function locationClick(each) {
     const city = each.lastIndexOf(" ");
     const location = city !== -1 ? each.substring(0, city) : each
+    setLocationList([])
+    setInputText("")
     return setSelectedLocation(location)
   }
 
   useEffect(() => {
     async function getWeather() {
-
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${selectedLocation}&appid=bbb2b7f15ac1b4c9a93d2dc5bf9ce911&units=metric`)
       const weatherData = await response.json()
       setCurrentWeatherDatas(weatherData)
       console.log(weatherData)
-      // weatherData.weather[0].description
-      //weatherData.wind.speed
-      //weatherData.name
-      //weatherData.main.temp_min
-      // //weatherData.main.temp_max
     }
     getWeather()
   }, [selectedLocation])
 
   return (
     <div>
-      {currentWeatherDatas?.main?.temp ? `${currentWeatherDatas.main.temp}°C` : "Loading..."}
       <div className="flex min-w-[470px] min-h-[300px]">
         <LightLeft
           inputText={inputText}
           onChangeInput={handleInputChange}
           locationList={locationList}
-          locationClick={locationClick} 
-          weather={currentWeatherDatas}/>
-        <DarkRight />
+          locationClick={locationClick}
+          weather={currentWeatherDatas} />
+        <DarkRight weather={currentWeatherDatas} />
       </div>
+     
     </div>
   )
 }

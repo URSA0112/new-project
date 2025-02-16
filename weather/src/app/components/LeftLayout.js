@@ -16,18 +16,18 @@ export function LightLeft(props) {
         
         <div className="bg-[var(--bgWhite-color)] w-1/2 h-screen flex items-center justify-center " >
 
-            <div className=" bg-[var(--day-color)] w-[65%] h-[70%] p-[15px] z-[2] backdrop-blur-[10px] 
-
+            <div className=" bg-[var(--day-color)] w-[45%] h-[65%] p-[15px] z-[2] backdrop-blur-[10px] 
                 rounded-lg justify-self-center 
                 block relative
-                min-w-[200px] min-h-[300px]">
-                <DayTitle></DayTitle>
+                min-w-[200px] min-h-[350px]">
+                <DayTitle weather={props.weather}></DayTitle>
                 <DayIcon></DayIcon>
                 <DayWeather weather={props.weather}></DayWeather>
-                <DayFooter></DayFooter>
+                <DayFooter weather={props.weather}></DayFooter>
             </div>
 
         </div>
+        
     </>
     )
 }
