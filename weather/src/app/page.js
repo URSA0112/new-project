@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [inputText, setInputText] = useState("")
+  const [error, setError] = useState('')
   function handleInputChange(e) { setInputText(e.target.value) }
   const [locationList, setLocationList] = useState([])
   const [locationData, setLocationData] = useState([])
@@ -47,9 +48,15 @@ export default function Home() {
   useEffect(() => {
     async function getWeather() {
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${selectedLocation}&appid=bbb2b7f15ac1b4c9a93d2dc5bf9ce911&units=metric`)
+      console.log(response)
       const weatherData = await response.json()
+
+      if (weatherData.cod == "404") {
+        setError(weatherData.message);
+        return;
+      }
       setCurrentWeatherDatas(weatherData)
-      console.log(weatherData)
+
     }
     getWeather()
   }, [selectedLocation])
@@ -62,10 +69,11 @@ export default function Home() {
           onChangeInput={handleInputChange}
           locationList={locationList}
           locationClick={locationClick}
-          weather={currentWeatherDatas} />
+          weather={currentWeatherDatas} 
+          error={error}/>
         <DarkRight weather={currentWeatherDatas} />
       </div>
-     
+
     </div>
   )
 }
